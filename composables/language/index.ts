@@ -2,6 +2,7 @@ import { javascript } from './javascript'
 import { vue } from './vue'
 import { svelte } from './svelte'
 import { json } from './json'
+import { css } from './css'
 import type { JsonNode, Range } from '#imports'
 
 export interface Parser<C = unknown, O = unknown> {
@@ -16,13 +17,13 @@ export interface Parser<C = unknown, O = unknown> {
     editorLanguage: MonacoLanguage
   } & (
     | {
-        defaultValue: string
-        defaultValueType: 'javascript'
-      }
+      defaultValue: string
+      defaultValueType: 'javascript'
+    }
     | {
-        defaultValue: O
-        defaultValueType?: 'json5'
-      }
+      defaultValue: O
+      defaultValueType?: 'json5'
+    }
   )
   editorLanguage: MonacoLanguage | ((options: O) => MonacoLanguage)
   getAstLocation?: (ast: JsonNode) => Range | undefined
@@ -38,6 +39,7 @@ export const LANGUAGES = {
   vue,
   svelte,
   json,
+  css,
 }
 export type Language = keyof typeof LANGUAGES
 

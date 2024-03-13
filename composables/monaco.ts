@@ -10,6 +10,8 @@ export type MonacoLanguage =
   | 'html'
   | 'vue'
   | 'svelte'
+  | 'css'
+  | 'md'
 
 export type Range = { start: number; end: number }
 export type JsonNode =
